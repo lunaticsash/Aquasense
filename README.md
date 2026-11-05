@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/lunaticsash/Aquasense/actions/workflows/test.yml/badge.svg)](https://github.com/lunaticsash/Aquasense/actions)
 
-**Live demo:** <vercel link>
+**Live demo:** <[Project link](https://aquasense-tan.vercel.app/)>
 
 ![Dashboard](docs/screenshot.png)
 
