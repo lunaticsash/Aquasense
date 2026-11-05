@@ -1,21 +1,10 @@
 # AI Note
 
-**Tools:** Claude (logic, tests, final UI) and Cursor (first UI pass).
+**Tools:** Claude for planning, logic, tests and the final UI, because it follows strict constraints well and I could review its output module by module. Cursor for a first UI attempt, because it works inside the editor.
 
-**Prompt 1 (Claude): Define strict boundaries to ensure the AI assists with development without modifying the core logic.**
-> I want you to act as my AI development assistant and work with me on this project.
 
-> Before starting, analyse the requirements and break the project into smaller, manageable modules. Suggest an optimized folder structure, explain the purpose of each file, and define how the frontend, backend, database and APIs will interact.
-
-> Be mindful of token usage and context limits. Avoid unnecessarily repeating information or generating huge code blocks. Work module by module and maintain a concise summary of architectural decisions, completed tasks and pending work so we can continue without losing context.
-
-> I want to actively participate in development. Explain the logic before implementation, let me write important parts of the code, and review my implementations. Use AI-generated boilerplate where it saves time, but don't take over the entire development process.
-
-> For backend integration, clearly define API contracts, request/response formats, database operations, authentication and error handling. After every major module, review the code for bugs, security, performance and maintainability.
-
-> If a better approach exists, explain the trade-offs before suggesting changes. Don't assume code is correct just because it runs. Help me test and validate the actual functionality.
-
-> Prioritize efficient AI assistance, modular development, context management and genuine developer involvement.
+**Prompt 1 (Claude):** 
+> "Break this project into small modules, suggest a folder structure, work module by module with concise summaries to save tokens, explain the logic before implementing, and review each module for bugs. I want to stay involved, so don't take over the whole build."
 
 **Prompt 2 (Claude): UI redesign and extras**
 > The UI feels flat. Make it simple but cool, with buttons and animations. Show a "Current: OK / LOW" status, make the 15% point clearly red in the low state, and add a small About and FAQ section. Don't touch levels.js. Put new derived logic (trend vs previous reading, time of min/max, refill detection) in a separate insights.js with its own tests.
