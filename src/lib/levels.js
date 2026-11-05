@@ -1,8 +1,11 @@
 const LOW_THRESHOLD = 20;
 
+const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/;
+
 const isValid = (r) =>
   r &&
   typeof r.timestamp === "string" &&
+  ISO.test(r.timestamp) &&
   !Number.isNaN(Date.parse(r.timestamp)) &&
   Number.isFinite(r.level_percent) &&
   r.level_percent >= 0 &&
