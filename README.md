@@ -1,16 +1,26 @@
-# React + Vite
+# AquaSense Mini-Build
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live: <vercel link> | Tests: ![tests](<repo>/actions/workflows/test.yml/badge.svg)
 
-Currently, two official plugins are available:
+Part A: React dashboard (current, today's min/max, alert below 20%, alert history, chart).
+Part B: Device API client, test plan and automated tests with mocked responses.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Run
+npm install
+npm run dev     # dashboard
+npm test        # 24 tests (Vitest, Jest-compatible API, chosen because the project uses Vite)
 
-## React Compiler
+## Assumptions
+- "Today" is the latest date in the data (mock data is from 2026-11-02), not the system date.
+- Alert is strictly below 20% (exactly 20% is not an alert).
+- Invalid readings (null, string, <0, >100, non-ISO timestamp) are dropped.
+- Stale device = last_seen older than 5 minutes. Anomaly = level < 20 and pump off.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Structure
+src/lib/levels.js    dashboard logic (pure, tested)
+src/components/      UI
+src/api/client.js    login and status client with validation
+tests/               levels and API tests
+docs/                TEST_PLAN, WIFI_LOSS, AI_NOTE
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![dashboard](docs/screenshot.png)

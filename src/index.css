@@ -1,10 +1,11 @@
 :root {
-  --bg: #f3f6f7;
-  --card: #ffffff;
+  --card: rgba(255, 255, 255, 0.92);
   --ink: #0f172a;
-  --muted: #64748b;
-  --line: #e2e8f0;
+  --muted: #5f7380;
+  --line: rgba(15, 118, 110, 0.12);
   --teal: #0f766e;
+  --teal-deep: #115e59;
+  --shadow: 0 12px 32px rgba(15, 90, 84, 0.1);
   --red: #b91c1c;
   --red-bg: #fef2f2;
   --red-border: #fecaca;
@@ -14,10 +15,26 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", system-ui, sans-serif;
-  background: var(--bg);
   color: var(--ink);
-  line-height: 1.4;
+  line-height: 1.45;
+  background: linear-gradient(165deg, #dff6f2 0%, #f6fbfb 46%, #cfeae6 100%);
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
